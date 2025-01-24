@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KING VON</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="video-background">
+        <img id="myVideo" src="resources/von.gif" alt="Animated Background">
+    </div>
+    <div class="overlay" id="overlay">
+        <div class="proceed-button" onclick="removeOverlay(); playMusic()">Click Me</div>
+    </div>
+    <script>
+        function removeOverlay() {
+          var overlay = document.getElementById("overlay");
+          overlay.style.display = "none";
+        }
+        function playMusic() {
+            var audio = new Audio('resources/king.wav');
+            
+            audio.addEventListener('ended', function() {
+                audio.currentTime = 0;
+                audio.play();
+            });
+
+            audio.play();
+        }
+        var titles = ["K", "KI", "KIN", "KING", "KING V", "KING VO", "KING VON"];
+        var currentTitleIndex = 0;
+        function changeTitle() {
+          document.title = titles[currentTitleIndex];
+          currentTitleIndex = (currentTitleIndex + 1) % titles.length;
+        }
+        setInterval(changeTitle, 300);
+    </script>
+</body>
+</html>
