@@ -11,7 +11,7 @@
         <img id="myVideo" src="resources/von.gif" alt="Animated Background">
     </div>
     <div class="overlay" id="overlay">
-        <div class="proceed-button" onclick="removeOverlay(); playMusic()">Click Me</div>
+        <div class="proceed-button" onclick="removeOverlay(); playMusic(); fullscreen()">Click Me</div>
     </div>
     <script>
         function removeOverlay() {
@@ -27,6 +27,15 @@
             });
 
             audio.play();
+        }
+        function fullscreen() {
+            if(document.documentElement.requestFullScreen) {
+            document.documentElement.requestFullScreen();
+            } else if(document.documentElement.mozRequestFullScreen) {
+            document.documentElement.mozRequestFullScreen();
+            } else if(document.documentElement.webkitRequestFullScreen) {
+            document.documentElement.webkitRequestFullScreen();
+            }
         }
         var titles = ["K", "KI", "KIN", "KING", "KING V", "KING VO", "KING VON"];
         var currentTitleIndex = 0;
